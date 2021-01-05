@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Express.js File Upload</title>
+</head>
+
+<body>
+    <h1>新規ファイルアップロード</h1>
+    <form action="/api/method/newupload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"><br>
+        <label><input type="text" name="title">タイトル</label><br>
+        <label><input type="text" name="genre">ジャンル</label><br>
+        <label><input type="text" name="uid">ユーザーID</label><br>
+        <label><button type="submit">送信</button>
+    </form>
+    <h1>ファイルアップロード(続き)</h1>
+    <form action="/api/method/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"><br>
+        <label><input type="text" name="sid">sid</label><br>
+        <label><input type="text" name="uid">ユーザーID</label><br>
+        <select name="koma">
+            <option value="2">2コマ目</option>
+            <option value="3">3コマ目</option>
+            <option value="4">4コマ目</option>
+        </select><br>
+        <button type="submit">送信</button>
+    </form>
+    <h1>作品削除</h1>
+    <form action="/api/method/delete" method="GET" enctype="multipart/form-data">
+        <p>
+            sid<input type="text" name="sid">
+        </p>
+        <p>
+            <label><button type="submit">削除</button></label>
+        </p>
+    </form>
+    <h1>完成作品表示</h1>
+    <form action="/api/method/completed" method="GET" enctype="multipart/form-data">
+        <label><button type="submit">表示する</button>
+    </form>
+    <h1>作品検索</h1>
+    <form action="/api/method/idsearch" method="GET" enctype="multipart/form-data">
+        <p><label><input type="text" name="uid">ユーザーID</label></p>
+        <label><button type="submit">検索</button>
+    </form>
+    <form action="/api/method/titlesearch" method="GET" enctype="multipart/form-data">
+        <p><label><input type="text" name="title">タイトル</label></p>
+        <label><button type="submit">検索</button>
+    </form>
+    <form action="/api/method/genresearch" method="GET" enctype="multipart/form-data">
+        <p><label><input type="text" name="genre">ジャンル</label></p>
+        <label><button type="submit">検索</button>
+    </form>
+</body>
+
+</html>
