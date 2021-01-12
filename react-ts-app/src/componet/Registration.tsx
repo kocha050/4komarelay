@@ -26,28 +26,32 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Login = (props: any) => {
+const Registration = (props: any) => {
   const classes = useStyles();
 
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
+ const [isLogin, setIsLogin] = useState(false);
 
   const getAuthentication = async () => {
     console.log(userEmail);
     console.log(userPassword);
 
-    const url =
-      "http://localhost:3000/api/method/login?uid=" +
-      userEmail +
-      "&pwd=" +
-      userPassword;
+    const data = { uid: userEmail, pwd: userPassword };
+
+    const param = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+
+      // リクエストボディ
+      body: JSON.stringify(data),
+    };
+
+    const url = "http://localhost:3000/api/method/";
     // 入力したidとパスワードをapiに送信
-<<<<<<< HEAD
-    const boolean = await fetch(url)
-=======
-    const res = await fetch(url)
->>>>>>> db7b2f2517c492e983ad6b9494219ba9e3ae32c2
+    const res = await fetch(url, param)
       .then((res) => {
         console.log("通信に成功しました");
         return res.json();
@@ -57,12 +61,9 @@ const Login = (props: any) => {
         return null;
       });
 
-    console.log(res);
     if (res) {
       //console.log("true");
-      console.log(isLogin);
       setIsLogin(true);
-      console.log(isLogin);
       handleToHomePage();
     } else {
       console.log("false");
@@ -79,7 +80,7 @@ const Login = (props: any) => {
     <div>
       <Container maxWidth="xs">
         <Grid container spacing={1} alignItems="center" justify="center">
-          <h1>ログイン</h1>
+          <h1>会員登録</h1>
         </Grid>
         <Grid container spacing={2} alignItems="center" justify="center">
           <form className={classes.root} noValidate autoComplete="off">
@@ -112,17 +113,17 @@ const Login = (props: any) => {
               variant="contained"
               onClick={() => getAuthentication()}
             >
-              ログイン
+              　登録する
             </Button>
           </div>
         </Grid>
         <Grid container spacing={4} alignItems="center" justify="center">
           <p>
-            <Link to="/Registration">アカウントをお持ちでない方はこちら</Link>
+            <Link to="/Login">アカウントをお持ちの方はこちら</Link>
           </p>
         </Grid>
       </Container>
     </div>
   );
 };
-export default Login;
+export default Registration;

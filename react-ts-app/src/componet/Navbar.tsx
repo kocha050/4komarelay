@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
-  Grid,
-  Button,
-  TextField,
-  Container,
+  // Grid,
+  // Button,
+  // TextField,
+  // Container,
   AppBar,
   Toolbar,
   InputBase,
@@ -14,6 +14,7 @@ import {
   Typography,
   Menu,
   MenuItem,
+  Box,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
@@ -115,7 +116,7 @@ const Navbar = () => {
             ４コマリレー
           </Typography>
           <Typography variant="h6" className={classes.koumoku}>
-            <Link to="/login">Login</Link>
+
           </Typography>
           <div>
             <Typography
@@ -146,6 +147,12 @@ const Navbar = () => {
           <Typography variant="h6" className={classes.koumoku}>
             未完成作品
           </Typography>
+          
+
+
+          
+
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -159,8 +166,25 @@ const Navbar = () => {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+      
         </Toolbar>
       </AppBar>
+      <br></br>
+      <Container maxWidth="sm" background-color="secondary">
+        <Grid container spacing={3}>
+          <Grid item xs={3}>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to="/login"><Button variant="contained" color="default" >ログアウト</Button></Link>
+          </Grid>
+          <Grid item xs={3}>
+            <Link to="/login"><Button variant="contained" color="secondary" >　退　会　</Button></Link>
+          </Grid>
+          <Grid item xs={3}>
+          </Grid>
+        </Grid>
+      </Container>
+      <br></br>
     </div>
   );
 };
