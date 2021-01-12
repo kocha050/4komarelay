@@ -43,11 +43,8 @@ const Login = (props: any) => {
       "&pwd=" +
       userPassword;
     // 入力したidとパスワードをapiに送信
-<<<<<<< HEAD
     const boolean = await fetch(url)
-=======
     const res = await fetch(url)
->>>>>>> db7b2f2517c492e983ad6b9494219ba9e3ae32c2
       .then((res) => {
         console.log("通信に成功しました");
         return res.json();

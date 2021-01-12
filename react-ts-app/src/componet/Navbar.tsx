@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
-  // Grid,
-  // Button,
+  Grid,
+  Button,
   // TextField,
-  // Container,
+  Container,
   AppBar,
   Toolbar,
   InputBase,

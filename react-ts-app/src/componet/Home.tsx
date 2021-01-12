@@ -14,29 +14,10 @@ const Home = () => {
     <div>
       <div>     
         <Navbar />
-<<<<<<< HEAD
-        <div>
-          <Grid container>
-            <Grid item xs={3}>
-              <ScrollCompornent />
-            </Grid>
-            <Grid item xs={3}>
-              <ScrollCompornent />
-            </Grid>
-            <Grid item xs={3}>
-              <ScrollCompornent />
-            </Grid>
-            <Grid item xs={3}>
-              <ScrollCompornent />
-            </Grid>
-          </Grid>
-        </div>
-=======
         <Scroll/>
         <p>
           <Link to="/login">Login</Link>
         </p>
->>>>>>> db7b2f2517c492e983ad6b9494219ba9e3ae32c2
       </div>
     </div>
   );
