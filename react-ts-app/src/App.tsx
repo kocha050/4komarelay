@@ -7,6 +7,7 @@ import Post from "./componet/Post";
 =======
 import Registration from "./componet/Registration";
 
+>>>>>>> db7b2f2517c492e983ad6b9494219ba9e3ae32c2
 import { BrowserRouter, Route } from "react-router-dom";
 
 const App = () => (
