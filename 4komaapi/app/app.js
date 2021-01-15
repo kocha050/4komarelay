@@ -11,6 +11,7 @@ var router = require('./routes/v2/');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 var port = process.env.PORT || 3000; // port番号を指定
 
 app.use(express.static('public'));

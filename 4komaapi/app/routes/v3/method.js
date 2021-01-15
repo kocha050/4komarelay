@@ -121,6 +121,18 @@ router.post('/newupload', function (req, res) {
     console.log(req.body.title);
     //console.log(req.body.genre);
 
+    //-------------------
+    const ALLOWED_METHODS = [
+        'POST',
+    ];
+    const origin = req.headers.origin;
+    sess.cookie.secure = true;
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Methods', ALLOWED_METHODS.join(','));
+    res.setHeader('Access-Control-Allow-Headers', 'Content-type,Accept,X-Custom-Header');
+
+    //-------------------
+
     upload(req, res, function (err) {
         if (err) {
             res.send(false);

@@ -70,7 +70,7 @@ const Post = () => {
     }
 
     const url = 'http://localhost:3000/api/method/newupload';
-    
+
     const postFetch = () => {
         console.log("title:" + title);
         console.log("genre:" + genre);
@@ -78,8 +78,20 @@ const Post = () => {
 
         fetch(url, {
             method: "POST",
-            body: title,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title: title,
+                genre: genre,
+                image: image
+            }),
+
+            mode: 'cors',
+            //credentials: 'include',
         });
+
+
     }
 
     return (

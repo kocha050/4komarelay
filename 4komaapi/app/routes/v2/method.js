@@ -1,3 +1,8 @@
+// import cors from 'cors;'//追加1/15
+
+// const app = express();
+// app.use(cors({ origin: true, credentials: true }));
+
 //http://localhost:3000/api/method/命令?**=**&**=**
 
 const path = require("path");
@@ -91,19 +96,19 @@ router.post("/upload", function (req, res) {
 
       res.send(
         " originalname=" +
-          req.file.originalname +
-          " filename=" +
-          req.file.filename +
-          " path=" +
-          Path +
-          " body.sid=" +
-          req.body.sid +
-          " body.uid=" +
-          req.body.uid +
-          " body.koma=" +
-          req.body.koma +
-          " SQL=" +
-          SQL
+        req.file.originalname +
+        " filename=" +
+        req.file.filename +
+        " path=" +
+        Path +
+        " body.sid=" +
+        req.body.sid +
+        " body.uid=" +
+        req.body.uid +
+        " body.koma=" +
+        req.body.koma +
+        " SQL=" +
+        SQL
       );
     }
   });
@@ -111,6 +116,23 @@ router.post("/upload", function (req, res) {
 
 router.post("/newupload", function (req, res) {
   res.set({ "Access-Control-Allow-Origin": "*" });
+  //res.set({ "Access-Control-Allow-Origin": true });
+  //res.set({ "Access-Control-Allow-Credentials": true });
+
+  /*
+  //-------------------
+  const ALLOWED_METHODS = [
+    'POST',
+  ];
+  const origin = req.headers.origin;
+  sess.cookie.secure = true;
+  res.setHeader('Access-Control-Allow-Origin', origin);
+  res.setHeader('Access-Control-Allow-Methods', ALLOWED_METHODS.join(','));
+  res.setHeader('Access-Control-Allow-Headers', 'Content-type,Accept,X-Custom-Header');
+
+  //-------------------
+  */
+
 
   upload(req, res, function (err) {
     if (err) {
@@ -121,11 +143,9 @@ router.post("/newupload", function (req, res) {
         "../../../public/images/",
         req.file.filename
       );
-      var SQL = `INSERT INTO sakuhin (sid, title, genre, uid1, k1) VALUES (\'${
-        Date.now() + req.body.uid
-      }\',\'${req.body.title}\', \'${req.body.genre}\',\'${
-        req.body.uid
-      }\',\'${Path}\')`;
+      var SQL = `INSERT INTO sakuhin (sid, title, genre, uid1, k1) VALUES (\'${Date.now() + req.body.uid
+        }\',\'${req.body.title}\', \'${req.body.genre}\',\'${req.body.uid
+        }\',\'${Path}\')`;
       console.log(SQL);
 
       pool.connect(function (err, client) {
@@ -140,17 +160,17 @@ router.post("/newupload", function (req, res) {
 
       res.send(
         " originalname= " +
-          req.file.originalname +
-          " filename= " +
-          req.file.filename +
-          " path=" +
-          Path +
-          " body.title=" +
-          req.body.title +
-          " body.genre=" +
-          req.body.genre +
-          " body.uid=" +
-          req.body.uid
+        req.file.originalname +
+        " filename= " +
+        req.file.filename +
+        " path=" +
+        Path +
+        " body.title=" +
+        req.body.title +
+        " body.genre=" +
+        req.body.genre +
+        " body.uid=" +
+        req.body.uid
       );
     }
   });
